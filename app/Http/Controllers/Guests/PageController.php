@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function index(){
 
-        $characters = Character::all();
+        $characters = Character::all()->sortBy('level');
 
         return view('index', compact('characters'));
     }
