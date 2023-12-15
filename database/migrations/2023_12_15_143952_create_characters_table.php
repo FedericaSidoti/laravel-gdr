@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('level');
             $table->string('name');
             $table->text('bio');
             $table->tinyInteger('defence');

@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Character;
-// use Faker\Generator as Faker;
+use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,10 +12,10 @@ class CharacterSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
 
-        $faker = \Faker\Factory::create('it_IT');
+        // $faker = \Faker\Factory::create('it_IT');
 
         for ($i = 0; $i < 10; $i++) {
 
@@ -32,13 +32,28 @@ class CharacterSeeder extends Seeder
                 "Un samurai disciplinato con un armatura tradizionale e una spada fulminante. La sua maestria nel combattimento con la katana è equiparata solo dalla sua abilità nel manipolare il tuono."
             ];
 
+            $level = $faker->numberBetween(1, 3);
+
             $newCharacter = new Character();
 
+            $newCharacter->level = $level;
             $newCharacter->name = $faker->name();
             $newCharacter->bio = $faker->unique->randomElement($bios);
-            $newCharacter->defence = $faker->numberBetween(1, 100);
-            $newCharacter->speed = $faker->numberBetween(1, 100);
-            $newCharacter->hp = $faker->numberBetween(1, 100);
+
+            if ($level === 1) {
+                $newCharacter->defence = $faker->numberBetween(1, 30);
+                $newCharacter->speed = $faker->numberBetween(1, 30);
+                $newCharacter->hp = $faker->numberBetween(1, 30);
+            } else if ($level === 2) {
+                $newCharacter->defence = $faker->numberBetween(31, 70);
+                $newCharacter->speed = $faker->numberBetween(31, 70);
+                $newCharacter->hp = $faker->numberBetween(31, 70);
+            } else {
+                $newCharacter->defence = $faker->numberBetween(71, 100);
+                $newCharacter->speed = $faker->numberBetween(71, 100);
+                $newCharacter->hp = $faker->numberBetween(71, 100);
+            }
+
 
             $newCharacter->save();
         }
