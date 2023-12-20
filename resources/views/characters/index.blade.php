@@ -10,15 +10,16 @@
 
        <section>
         <div class="container">
-            <table class="table table-primary">
+            <table class="table table-primary w-50">
                 <thead>
                     <tr>
                         <th scope="col">Livello</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Descrizione</th>
+                        <th scope="col"></th>
+                        {{-- <th scope="col">Descrizione</th>
                         <th scope="col">Difesa</th>
                         <th scope="col">Velocità</th>
-                        <th scope="col">Salute</th>
+                        <th scope="col">Salute</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -26,10 +27,11 @@
                     <tr>
                         <td>{{$character->level}}</td>
                          <td>{{$character->name}}</td>
-                        <td>{{$character->bio}}</td>
+                         <td><button><a href="{{ route('characters.show', $character->id) }}">Dettagli</a></button></td>
+                        {{-- <td>{{$character->bio}}</td>
                        <td>{{$character->defence}}</td>
                        <td>{{$character->speed}}</td>
-                       <td>{{$character->hp}}</td>
+                       <td>{{$character->hp}}</td> --}}
                     </tr>
                     @endforeach
                 </tbody>

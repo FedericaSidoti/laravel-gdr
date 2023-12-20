@@ -17,6 +17,14 @@
 
 <body>
 
+    <header>
+        <ul class="d-flex justify-content-around">
+            <li><a href="">Home</a></li>
+            <li><a href="">Personaggi</a></li>
+            <li><a href="">Nuovo Personaggio</a></li>
+        </ul>
+    </header>
+
     <main class="bg-light">
         @yield('content')
     </main>
