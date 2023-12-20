@@ -6,7 +6,7 @@
 
 @section('content')
     {{-- <h1>Homepage</h1> --}}
-    <h1 class="text-center p-5">Scegli il tuo personaggio</h1>
+    <h1 class="text-center p-5">Scegli il tuo personaggio!</h1>
 
        <section>
         <div class="container">
