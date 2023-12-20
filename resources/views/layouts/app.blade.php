@@ -19,9 +19,9 @@
 
     <header>
         <ul class="d-flex justify-content-around">
-            <li><a href="">Home</a></li>
-            <li><a href="">Personaggi</a></li>
-            <li><a href="">Nuovo Personaggio</a></li>
+            <li><a href="{{route('home')}}">Home</a></li>
+            <li><a href="{{route('characters.index')}}">Personaggi</a></li>
+            <li><a href="{{route('characters.create')}}">Nuovo Personaggio</a></li>
         </ul>
     </header>
 
