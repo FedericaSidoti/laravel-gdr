@@ -26,10 +26,19 @@
                     @foreach ($characters as $character)
                     <tr>
                         <td>{{$character->level}}</td>
-                         <td>{{$character->name}}</td>
-                         <td>
+                        <td>{{$character->name}}</td>
+                        <td class="d-flex gap-3">
                             <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.show', $character->id) }}">Dettagli</a></button>
+
                             <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a></button>
+
+                            <form action="{{route('characters.destroy', $character->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                {{-- Pulsante elimina --}}
+                                <input type="submit" value="Elimina" class="btn btn-danger">
+                            </form>
                         </td>
                         {{-- <td>{{$character->bio}}</td>
                        <td>{{$character->defence}}</td>
