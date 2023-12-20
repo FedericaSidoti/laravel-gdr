@@ -20,4 +20,9 @@ class PageController extends Controller
     {
         return view('characters.show', compact('character'));
     }
+
+    public function create() {
+
+        return view('characters.create');
+    }
 }
