@@ -3,9 +3,12 @@
 @section('content')
     <div class="container">
         <h1> Crea il tuo personaggio</h1>
-        <form action="" method="POST">
+        <form action="{{ route('characters.update', $character->id) }}" method="POST">
+
             @csrf
+
             @method('PUT')
+
             <div class="mb-3">
                 <label for="name" class="form-label">Nome Personaggio</label>
                 <input type="text" class="form-control" name="name" id="name" placeholder="Jack" value="{{old('name', $character->name)}}">
