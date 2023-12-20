@@ -25,4 +25,12 @@ class PageController extends Controller
 
         return view('characters.create');
     }
+
+    public function store(Request $request) {
+        $data = $request->all(); 
+
+        $newCharacter = Character::create($data);
+
+        return redirect()->route('characters.index');
+    }
 }

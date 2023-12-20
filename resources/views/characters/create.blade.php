@@ -11,7 +11,7 @@
             </div>
             <div class="mb-3">
                 <label for="level" class="form-label">Livello</label>
-                <input type="number" class="form-control" name="level" id="level" placeholder="1" value="{{old('level')}}">
+                <input type="number" class="form-control" name="level" id="level" value="{{old('level')}}">
             </div>
             <div class="mb-3">
                 <label for="bio" class="form-label">Bio</label>
