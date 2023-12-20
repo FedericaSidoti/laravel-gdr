@@ -49,4 +49,12 @@ class PageController extends Controller
 
         return redirect()->route('characters.show', $character->id);
     }
+
+    public function destroy(Character $character)
+    {
+
+        $character->delete();
+
+        return redirect()->route('characters.index');
+    }
 }
