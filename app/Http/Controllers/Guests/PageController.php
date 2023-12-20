@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $characters = Character::all()->sortBy('level');
 
-        return view('index', compact('characters'));
+        return view('characters.index', compact('characters'));
+    }
+
+    public function show(Character $character)
+    {
+        return view('characters.show', compact('character'));
     }
 }

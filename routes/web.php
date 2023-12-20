@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Guests\PageController;
+use App\Models\Character;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
+Route::resource('characters', PageController::class);
