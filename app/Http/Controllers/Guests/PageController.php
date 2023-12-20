@@ -33,4 +33,9 @@ class PageController extends Controller
 
         return redirect()->route('characters.index');
     }
+
+    public function edit(Character $character) {
+
+        return view('characters.edit', compact('character'));
+    }
 }

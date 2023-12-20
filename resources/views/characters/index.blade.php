@@ -10,7 +10,7 @@
 
        <section>
         <div class="container">
-            <table class="table table-primary w-50">
+            <table class="table table-primary w-50 mx-auto">
                 <thead>
                     <tr>
                         <th scope="col">Livello</th>
@@ -27,7 +27,10 @@
                     <tr>
                         <td>{{$character->level}}</td>
                          <td>{{$character->name}}</td>
-                         <td><button><a href="{{ route('characters.show', $character->id) }}">Dettagli</a></button></td>
+                         <td>
+                            <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.show', $character->id) }}">Dettagli</a></button>
+                            <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a></button>
+                        </td>
                         {{-- <td>{{$character->bio}}</td>
                        <td>{{$character->defence}}</td>
                        <td>{{$character->speed}}</td>
