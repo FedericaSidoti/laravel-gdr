@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1> Crea il tuo personaggio</h1>
+        <h1>Modifica il tuo personaggio</h1>
         <form action="{{ route('characters.update', $character->id) }}" method="POST">
 
             @csrf
@@ -33,6 +33,14 @@
                 <label for="hp" class="form-label">HP</label>
                 <input type="number" class="form-control" name="hp" id="hp" value="{{old('hp', $character->hp)}}">
             </div>
+
+            <select class="form-select mb-3" aria-label="Default select example" name="type_id" id="type_id">
+                <option value="">Scegli la classe</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @selected(old('type_id', optional($character->type)->id) == $type->id)>{{ $type->name }}</option>
+                @endforeach
+            </select>
+
             <div>
                 <input type="submit" class="btn btn-primary" value="Modifica">
             </div>

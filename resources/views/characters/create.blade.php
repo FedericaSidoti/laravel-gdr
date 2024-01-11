@@ -29,6 +29,14 @@
                 <label for="hp" class="form-label">HP</label>
                 <input type="number" class="form-control" name="hp" id="hp" value="{{old('hp')}}">
             </div>
+
+            <select class="form-select mb-3" aria-label="Default select example" name="type_id" id="type_id">
+                <option value="">Scegli la classe</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{{ $type->name }}</option>
+                @endforeach
+            </select>
+
             <div>
                 <input type="submit" class="btn btn-primary" value="Aggiungi">
             </div>
