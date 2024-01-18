@@ -18,7 +18,7 @@ class Character extends Model
     //     'hp'
     // ];
 
-    protected $guarded = [];
+    protected $guarded = ['items'];
 
     public function type()
     {

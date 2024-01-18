@@ -16,12 +16,11 @@ return new class extends Migration
             $table->tinyInteger('level');
             $table->string('name');
             $table->text('bio');
+            $table->tinyInteger('attack');
             $table->tinyInteger('defence');
             $table->tinyInteger('speed');
             $table->tinyInteger('hp');
             $table->timestamps();
-           
-
         });
     }
 

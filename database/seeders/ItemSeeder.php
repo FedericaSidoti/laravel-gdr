@@ -14,11 +14,12 @@ class ItemSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
+        $items = ['Armatura', 'Scudo', 'Ascia', 'Giavellotto', 'Lancia', 'Pugnale', 'Martello Leggero', 'Arco', 'Balestra', 'Fionda', 'Dardo', 'Alabarda', 'Frusta', 'Piccone da Guerra', 'Spada', 'Scimitarra', 'Tridente', 'Cerbottana', 'Abito Comune', 'Veleno', 'Attrezzi da scalatore', 'Cannocchiale', 'Bacchetta', 'Verga', 'Libro', 'Rampino', 'Torcia', 'Tenda', 'Pozione di Guarigione'];
 
-        for ($i = 0; $i < 15; $i++) {
+        foreach ($items as $item_name) {
             $new_item = new Item();
 
-            $new_item->name = $faker->word();
+            $new_item->name = $item_name;
             $new_item->description = $faker->paragraph();
             $new_item->price = $faker->numberBetween(100, 1000);
 

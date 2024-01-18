@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Character;
+use App\Models\Item;
 use App\Models\Type;
 use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,6 +19,8 @@ class CharacterSeeder extends Seeder
 
         $types = Type::all();
         $typeIds = $types->pluck('id');
+        $items = Item::all();
+        $itemIds = $items->pluck('id');
         // $faker = \Faker\Factory::create('it_IT');
 
         for ($i = 0; $i < 10; $i++) {
@@ -44,14 +47,17 @@ class CharacterSeeder extends Seeder
             $newCharacter->bio = $faker->unique->randomElement($bios);
 
             if ($level === 1) {
+                $newCharacter->attack = $faker->numberBetween(1, 30);
                 $newCharacter->defence = $faker->numberBetween(1, 30);
                 $newCharacter->speed = $faker->numberBetween(1, 30);
                 $newCharacter->hp = $faker->numberBetween(1, 30);
             } else if ($level === 2) {
+                $newCharacter->attack = $faker->numberBetween(1, 30);
                 $newCharacter->defence = $faker->numberBetween(31, 70);
                 $newCharacter->speed = $faker->numberBetween(31, 70);
                 $newCharacter->hp = $faker->numberBetween(31, 70);
             } else {
+                $newCharacter->attack = $faker->numberBetween(1, 30);
                 $newCharacter->defence = $faker->numberBetween(71, 100);
                 $newCharacter->speed = $faker->numberBetween(71, 100);
                 $newCharacter->hp = $faker->numberBetween(71, 100);
@@ -60,6 +66,8 @@ class CharacterSeeder extends Seeder
             $newCharacter->type_id = $faker->optional()->randomElement($typeIds);
 
             $newCharacter->save();
+
+            $newCharacter->items()->attach($faker->randomElements($itemIds, null));
         }
     }
 }

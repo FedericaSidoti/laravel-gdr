@@ -14,7 +14,7 @@ class TypeSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $types = ['Incantatore', 'Barbaro', 'Guerriero', 'Stregone', 'Negromante', 'Tagliagole'];
+        $types = ['Druido', 'Barbaro', 'Guerriero', 'Stregone', 'Ladro', 'Mago', 'Monaco', 'Ranger', 'Paladino'];
 
 
         foreach ($types as $type_name) {
