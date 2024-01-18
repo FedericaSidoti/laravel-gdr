@@ -6,17 +6,17 @@
 
 @section('content')
     {{-- <h1>Homepage</h1> --}}
-    <h1 class="text-center p-5">Scegli il tuo personaggio!</h1>
+    <h1 class="text-center p-5">Personaggi</h1>
 
         <section>
         <div class="container">
-            <table class="table table-primary w-50 mx-auto">
+            <table class="table table-primary mx-auto">
                 <thead>
                     <tr>
                         <th scope="col">Livello</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Classe</th>
-                        <th scope="col" class="text-end">
+                        <th scope="col" class="text-center">
                             <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.create') }}">Nuovo Personaggio</a></button>
                         </th>
                         {{-- <th scope="col">Descrizione</th>
@@ -55,10 +55,10 @@
                         <td>{{$character->name}}</td>
                         <td>{{ isset($character->type) ? $character->type->name : '-' }}</td>
                         <td>
-                            <div class="d-flex gap-3 align-items-center">
-                                <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.show', $character->id) }}">Dettagli</a></button>
+                            <div class="d-flex gap-3 justify-content-center">
+                                <button class="btn btn-sm btn-primary"><a class="text-decoration-none text-white" href="{{ route('characters.show', $character->id) }}">Dettagli</a></button>
 
-                                <button class="btn btn-warning"><a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a></button>
+                                <button class="btn btn-sm btn-warning"><a class="text-decoration-none text-white" href="{{ route('characters.edit', $character->id) }}">Modifica</a></button>
 
                                 {{-- <form action="{{route('characters.destroy', $character->id)}}" method="POST">
                                     @csrf
@@ -68,7 +68,7 @@
                                     <input type="submit" value="Elimina" class="btn btn-danger">
                                 {{-- </form> --}} 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$character->id}}">
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modal-{{$character->id}}">
                                 Elimina
                                 </button>
                             </div>

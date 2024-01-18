@@ -18,10 +18,15 @@ class Character extends Model
     //     'hp'
     // ];
 
-    protected $guarded = [];
+    protected $guarded = ['items'];
 
     public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class);
     }
 }
