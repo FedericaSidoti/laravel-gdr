@@ -52,12 +52,12 @@ class CharacterSeeder extends Seeder
                 $newCharacter->speed = $faker->numberBetween(1, 30);
                 $newCharacter->hp = $faker->numberBetween(1, 30);
             } else if ($level === 2) {
-                $newCharacter->attack = $faker->numberBetween(1, 30);
+                $newCharacter->attack = $faker->numberBetween(31, 70);
                 $newCharacter->defence = $faker->numberBetween(31, 70);
                 $newCharacter->speed = $faker->numberBetween(31, 70);
                 $newCharacter->hp = $faker->numberBetween(31, 70);
             } else {
-                $newCharacter->attack = $faker->numberBetween(1, 30);
+                $newCharacter->attack = $faker->numberBetween(71, 100);
                 $newCharacter->defence = $faker->numberBetween(71, 100);
                 $newCharacter->speed = $faker->numberBetween(71, 100);
                 $newCharacter->hp = $faker->numberBetween(71, 100);

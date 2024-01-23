@@ -36,6 +36,18 @@ class PageController extends Controller
     {
         $data = $request->all();
 
+        $request->validate([
+            'level' => 'required|max:1|between:1,3',
+            'name' => 'required|max:255',
+            'bio' => 'required',
+            'attack' => 'required|max:3|between:1,100',
+            'defence' => 'required|max:3|between:1,100',
+            'speed' => 'required|max:3|between:1,100',
+            'hp' => 'required|max:3|between:1,100',
+            'type_id' => 'nullable|exists:types,id',
+            'item_id' => 'nullable|exists:technologies,id'
+        ]);
+
         $newCharacter = Character::create($data);
 
         if ($request->has('items')) {
@@ -57,6 +69,19 @@ class PageController extends Controller
     public function update(Request $request, Character $character)
     {
         $data = $request->all();
+
+        $request->validate([
+            'level' => 'required|max:1|between:1,3',
+            'name' => 'required|max:255',
+            'bio' => 'required',
+            'attack' => 'required|max:3|between:1,100',
+            'defence' => 'required|max:3|between:1,100',
+            'speed' => 'required|max:3|between:1,100',
+            'hp' => 'required|max:3|between:1,100',
+            'type_id' => 'nullable|exists:types,id',
+            'item_id' => 'nullable|exists:technologies,id'
+        ]);
+
         $character->update($data);
 
         if ($request->has('items')) {

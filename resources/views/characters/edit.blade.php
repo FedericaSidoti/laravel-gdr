@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3">
                 <label for="level" class="form-label">Livello</label>
-                <input type="number" class="form-control" name="level" id="level" value="{{old('level', $character->level)}}">
+                <input type="number" class="form-control" name="level" id="level" min="1" max="3" value="{{old('level', $character->level)}}">
             </div>
             <div class="mb-3">
                 <label for="bio" class="form-label">Bio</label>
@@ -24,20 +24,20 @@
 
             <div class="mb-3">
                 <label for="attack" class="form-label">Attacco</label>
-                <input type="number" class="form-control" name="attack" id="attack" value="{{old('attack', $character->attack)}}">
+                <input type="number" class="form-control" name="attack" id="attack" min="1" max="100" value="{{old('attack', $character->attack)}}">
             </div>
 
             <div class="mb-3">
                 <label for="defence" class="form-label">Difesa</label>
-                <input type="number" class="form-control" name="defence" id="defence" value="{{old('defence', $character->defence)}}">
+                <input type="number" class="form-control" name="defence" id="defence" min="1" max="100" value="{{old('defence', $character->defence)}}">
             </div>
             <div class="mb-3">
                 <label for="speed" class="form-label">Velocità</label>
-                <input type="number" class="form-control" name="speed" id="speed" value="{{old('speed', $character->speed)}}">
+                <input type="number" class="form-control" name="speed" id="speed" min="1" max="100" value="{{old('speed', $character->speed)}}">
             </div>
             <div class="mb-3">
                 <label for="hp" class="form-label">HP</label>
-                <input type="number" class="form-control" name="hp" id="hp" value="{{old('hp', $character->hp)}}">
+                <input type="number" class="form-control" name="hp" id="hp" min="1" max="100" value="{{old('hp', $character->hp)}}">
             </div>
 
             <p>Seleziona uno o più oggetti</p>
@@ -63,5 +63,16 @@
                 <input type="submit" class="btn btn-primary" value="Modifica">
             </div>
         </form>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
     </div>
 @endsection

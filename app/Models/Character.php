@@ -9,16 +9,18 @@ class Character extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'name',
-    //     'level',
-    //     'bio',
-    //     'defence',
-    //     'speed',
-    //     'hp'
-    // ];
+    protected $fillable = [
+        'name',
+        'level',
+        'bio',
+        'attack',
+        'defence',
+        'speed',
+        'hp',
+        'type_id'
+    ];
 
-    protected $guarded = ['items'];
+    // protected $guarded = ['items'];
 
     public function type()
     {
